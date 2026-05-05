@@ -1,11 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Morgan — Developer & Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Alex Morgan</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"    onclick="closeMobile()">About</a>
+    <a href="#skills"   onclick="closeMobile()">Skills</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#resume"   onclick="closeMobile()">Resume</a>
+    <a href="#contact"  onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Available for work</div>
+      <h1>Creative<br><em>Developer</em><br>&amp; Designer</h1>
+      <p class="hero-desc">
+        I craft digital experiences that are both <strong>functional</strong> and
+        <strong>beautiful</strong> — from pixel-perfect interfaces to robust back-end systems.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Work</a>
+        <a href="#contact"  class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-photo-frame">
+        <div class="avatar-placeholder">AM</div>
+      </div>
+      <div class="hero-decoration">Portfolio · 2024</div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-label">About Me</div>
+    <div class="about-grid">
+
+      <div class="about-text">
+        <h2>Turning ideas<br>into <em>reality</em></h2>
+        <p>
+          I'm <strong>Alex Morgan</strong>, a full-stack developer and UI designer based in New
+          York City. With over 5 years of experience, I specialize in building scalable web
+          applications and interfaces that users love.
+        </p>
+        <p>
+          My philosophy is simple: every line of code should serve a purpose, and every design
+          decision should enhance the human experience. I believe the best products emerge from
+          the intersection of <strong>technical precision</strong> and
+          <strong>creative intuition</strong>.
+        </p>
+        <p>
+          When I'm not coding, you'll find me exploring typography, photographing city
+          architecture, or contributing to open-source projects.
+        </p>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">42</div>
+            <div class="stat-label">Projects Shipped</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">18</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Design Awards</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image-stack">
+        <div class="img-card img-card-1"></div>
+        <div class="img-card img-card-2">
+          <span>Currently at</span>
+          <strong>Studio Nord</strong>
+          <span>Lead Developer</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="section-label">Expertise</div>
+    <h2>What I <em>do</em></h2>
+    <p class="section-intro">
+      A broad toolkit built over years of shipping real products — from design systems to
+      deployment pipelines.
+    </p>
+
+    <div class="skills-grid">
+
+      <!-- Frontend -->
+      <div class="skill-category reveal">
+        <div class="skill-icon">⬡</div>
+        <div class="skill-cat-name">Frontend</div>
+        <ul class="skill-list">
+          <li>React / Next.js   <div class="skill-bar"><div class="skill-fill" data-width="0.92"></div></div></li>
+          <li>TypeScript        <div class="skill-bar"><div class="skill-fill" data-width="0.88"></div></div></li>
+          <li>CSS / Tailwind    <div class="skill-bar"><div class="skill-fill" data-width="0.95"></div></div></li>
+          <li>Animation / GSAP  <div class="skill-bar"><div class="skill-fill" data-width="0.78"></div></div></li>
+        </ul>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-icon">◈</div>
+        <div class="skill-cat-name">Backend</div>
+        <ul class="skill-list">
+          <li>Node.js / Express <div class="skill-bar"><div class="skill-fill" data-width="0.85"></div></div></li>
+          <li>PostgreSQL        <div class="skill-bar"><div class="skill-fill" data-width="0.80"></div></div></li>
+          <li>Python / FastAPI  <div class="skill-bar"><div class="skill-fill" data-width="0.72"></div></div></li>
+          <li>REST &amp; GraphQL<div class="skill-bar"><div class="skill-fill" data-width="0.83"></div></div></li>
+        </ul>
+      </div>
+
+      <!-- Design -->
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-icon">◎</div>
+        <div class="skill-cat-name">Design</div>
+        <ul class="skill-list">
+          <li>Figma          <div class="skill-bar"><div class="skill-fill" data-width="0.90"></div></div></li>
+          <li>Design Systems <div class="skill-bar"><div class="skill-fill" data-width="0.85"></div></div></li>
+          <li>UI / UX Research<div class="skill-bar"><div class="skill-fill" data-width="0.75"></div></div></li>
+          <li>Motion Design  <div class="skill-bar"><div class="skill-fill" data-width="0.70"></div></div></li>
+        </ul>
+      </div>
+
+      <!-- DevOps -->
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-icon">⬟</div>
+        <div class="skill-cat-name">DevOps</div>
+        <ul class="skill-list">
+          <li>Docker / K8s   <div class="skill-bar"><div class="skill-fill" data-width="0.75"></div></div></li>
+          <li>AWS / Vercel   <div class="skill-bar"><div class="skill-fill" data-width="0.80"></div></div></li>
+          <li>CI / CD        <div class="skill-bar"><div class="skill-fill" data-width="0.78"></div></div></li>
+          <li>Git / GitHub   <div class="skill-bar"><div class="skill-fill" data-width="0.95"></div></div></li>
+        </ul>
+      </div>
+
+      <!-- Mobile -->
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-icon">◇</div>
+        <div class="skill-cat-name">Mobile</div>
+        <ul class="skill-list">
+          <li>React Native   <div class="skill-bar"><div class="skill-fill" data-width="0.70"></div></div></li>
+          <li>Expo           <div class="skill-bar"><div class="skill-fill" data-width="0.68"></div></div></li>
+          <li>iOS / Android  <div class="skill-bar"><div class="skill-fill" data-width="0.60"></div></div></li>
+          <li>App Store Deploy<div class="skill-bar"><div class="skill-fill" data-width="0.65"></div></div></li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-icon">○</div>
+        <div class="skill-cat-name">Soft Skills</div>
+        <ul class="skill-list">
+          <li>Team Leadership <div class="skill-bar"><div class="skill-fill" data-width="0.88"></div></div></li>
+          <li>Communication  <div class="skill-bar"><div class="skill-fill" data-width="0.92"></div></div></li>
+          <li>Problem Solving <div class="skill-bar"><div class="skill-fill" data-width="0.95"></div></div></li>
+          <li>Agile / Scrum  <div class="skill-bar"><div class="skill-fill" data-width="0.85"></div></div></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="section-label">Selected Work</div>
+    <h2>Recent <em>Projects</em></h2>
+    <p class="section-intro">
+      A curated selection of work spanning product design, engineering, and creative direction.
+    </p>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-num">01</div>
+        <div class="project-title">Luminary Dashboard</div>
+        <p class="project-desc">
+          A real-time analytics platform for SaaS companies. Features live data streaming,
+          customizable widgets, and role-based access control.
+        </p>
+        <div class="project-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">WebSockets</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-num">02</div>
+        <div class="project-title">Orion Design System</div>
+        <p class="project-desc">
+          A comprehensive component library and design token system used across 4 products.
+          Built with Storybook, Figma tokens, and full accessibility compliance.
+        </p>
+        <div class="project-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Storybook</span>
+          <span class="tag">Figma</span>
+          <span class="tag">WCAG 2.1</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-num">03</div>
+        <div class="project-title">Verdant E-commerce</div>
+        <p class="project-desc">
+          A sustainable fashion marketplace with AI-powered recommendations, 3D product
+          previews, and a carbon footprint tracker per order.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">Three.js</span>
+          <span class="tag">Python AI</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">04</div>
+        <div class="project-title">Pulse Mobile App</div>
+        <p class="project-desc">
+          A health &amp; wellness app with biometric integration, daily habit tracking, and
+          personalized AI coaching. 50 k+ downloads on iOS and Android.
+        </p>
+        <div class="project-tags">
+          <span class="tag">React Native</span>
+          <span class="tag">HealthKit</span>
+          <span class="tag">FastAPI</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-num">05</div>
+        <div class="project-title">Archetype CMS</div>
+        <p class="project-desc">
+          A headless CMS built for editorial teams, featuring a drag-and-drop page builder,
+          multi-language support, and an advanced media pipeline.
+        </p>
+        <div class="project-tags">
+          <span class="tag">GraphQL</span>
+          <span class="tag">AWS S3</span>
+          <span class="tag">Vue.js</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-num">06</div>
+        <div class="project-title">Beacon Open Source</div>
+        <p class="project-desc">
+          A developer toolkit for building accessible React components. 2.4 k GitHub stars,
+          active community of 180+ contributors worldwide.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Open Source</span>
+          <span class="tag">React</span>
+          <span class="tag">Accessibility</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── RESUME ── -->
+  <section id="resume">
+    <div class="section-label">Experience</div>
+    <h2>My <em>Journey</em></h2>
+    <p class="section-intro">
+      A career built on curiosity, shipped products, and continuous learning.
+    </p>
+
+    <div class="resume-grid">
+
+      <!-- Work Experience -->
+      <div class="resume-col">
+        <h3>Work Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="t-date">2022 — Present</div>
+            <div class="t-title">Lead Developer</div>
+            <div class="t-org">Studio Nord, New York</div>
+            <p class="t-desc">
+              Leading a team of 6 engineers building next-generation SaaS products. Responsible
+              for architecture decisions, code reviews, and cross-team collaboration.
+            </p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="t-date">2020 — 2022</div>
+            <div class="t-title">Senior Frontend Engineer</div>
+            <div class="t-org">Wavelength Labs, Remote</div>
+            <p class="t-desc">
+              Built and maintained a component library serving 3 product lines. Introduced
+              design token methodology and reduced UI inconsistencies by 70%.
+            </p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="t-date">2018 — 2020</div>
+            <div class="t-title">Full-Stack Developer</div>
+            <div class="t-org">Beacon Digital, Brooklyn</div>
+            <p class="t-desc">
+              Developed client-facing web applications using React and Node.js. Delivered 12+
+              projects on time and within budget.
+            </p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="t-date">2017 — 2018</div>
+            <div class="t-title">Junior Developer</div>
+            <div class="t-org">Pixelcraft Studio</div>
+            <p class="t-desc">
+              Started career building WordPress themes and custom PHP plugins for small
+              businesses and startups.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Awards -->
+      <div class="resume-col">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="t-date">2013 — 2017</div>
+            <div class="t-title">B.Sc. Computer Science</div>
+            <div class="t-org">New York University</div>
+            <p class="t-desc">
+              Specialized in Human-Computer Interaction and Software Engineering. Graduated
+              with Honours, GPA 3.8/4.0.
+            </p>
+          </div>
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="t-date">2016</div>
+            <div class="t-title">UX Design Certificate</div>
+            <div class="t-org">Google / Coursera</div>
+            <p class="t-desc">
+              Completed Google's UX Design Professional Certificate, covering research,
+              wireframing, and prototyping methodologies.
+            </p>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Awards</h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="t-date">2023</div>
+            <div class="t-title">Awwwards Site of the Day</div>
+            <div class="t-org">Luminary Dashboard</div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="t-date">2022</div>
+            <div class="t-title">CSS Design Awards — Special Kudos</div>
+            <div class="t-org">Orion Design System</div>
+          </div>
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="t-date">2021</div>
+            <div class="t-title">Webby Award — Best UX</div>
+            <div class="t-org">Verdant E-commerce</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="section-label">Get in Touch</div>
+    <h2>Let's <em>work</em> together</h2>
+    <p class="section-intro">
+      Have a project in mind or just want to say hello? My inbox is always open.
+    </p>
+
+    <div class="contact-layout">
+
+      <div class="contact-info">
+        <p>
+          Whether you're looking for a collaborator, need a technical consultant, or want to
+          discuss a full-time role — I'd love to hear from you. I typically respond within 24
+          hours.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:alex@alexmorgan.dev" class="contact-link">
+            <span class="contact-link-icon">✉</span> alex@alexmorgan.dev
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="contact-link">
+            <span class="contact-link-icon">in</span> linkedin.com/in/alexmorgan
+          </a>
+          <a href="https://github.com" target="_blank" class="contact-link">
+            <span class="contact-link-icon">⌥</span> github.com/alexmorgan
+          </a>
+          <a href="https://twitter.com" target="_blank" class="contact-link">
+            <span class="contact-link-icon">𝕏</span> @alexmorgandev
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Project Inquiry" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span class="footer-logo">Alex Morgan</span>
+    <span>Designed &amp; built with care · 2024</span>
+    <span>New York City, USA</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
