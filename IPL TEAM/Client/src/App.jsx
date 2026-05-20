@@ -7,6 +7,7 @@ import News from './News.jsx'
 import Players from './Players.jsx'
 import Schedule from './Schedule.jsx'
 import Stats from './Stats.jsx'
+import rcbLogo from '../logo.jpg'
 import './App.css'
 
 const navItems = [
@@ -26,10 +27,10 @@ function App() {
       <div className="app-shell">
         <header className="site-header">
           <div className="brand">
-            <span className="brand-pill">RCB</span>
+            <img src={rcbLogo} alt="RCB logo" className="brand-logo" />
             <div>
-              <h1>RCB Fan Hub</h1>
-              <p>Royal Challengers Bangalore portal for players, fixtures, stats, and fan community updates.</p>
+              <h1>RCB IPL Team</h1>
+              <p>Royal Challengers Bangalore IPL team dashboard for players, fixtures, stats, and fan updates.</p>
             </div>
           </div>
 
