@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Challengers Bangalore — Official Fan Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #CC0000;
+    --red2: #FF1A1A;
+    --gold: #D4AF37;
+    --black: #0A0000;
+    --darker: #060000;
+    --surface: rgba(204,0,0,0.10);
+    --text: #FFF0F0;
+    --muted: rgba(255,240,240,0.55);
+    --border: rgba(204,0,0,0.35);
+    --gold-glow: 0 0 20px rgba(212,175,55,0.45);
+    --red-glow: 0 0 24px rgba(204,0,0,0.5);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--darker);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 15% 10%, rgba(204,0,0,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 70% at 85% 85%, rgba(180,0,0,0.13) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(204,0,0,0.025) 40px, rgba(204,0,0,0.025) 41px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+    background: rgba(6,0,0,0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo .crest {
+    width: 42px; height: 42px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    box-shadow: var(--gold-glow);
+    letter-spacing: 1px;
+  }
+
+  .nav-logo span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 14px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 8px 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 13px;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: background .2s, box-shadow .2s;
+  }
+  .nav-cta:hover { background: var(--red2); box-shadow: var(--red-glow); }
+
+  /* ===== HERO ===== */
+  #hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(100px, 20vw, 260px);
+    color: rgba(204,0,0,0.06);
+    letter-spacing: 6px;
+    user-select: none;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 0;
+    animation: breathe 6s ease-in-out infinite;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(212,175,55,0.12);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    padding: 6px 22px; margin-bottom: 24px;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    animation: fadeUp .8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 116px);
+    line-height: 0.88;
+    letter-spacing: 4px;
+    color: var(--text);
+    animation: fadeUp .8s .15s ease both;
+  }
+
+  .hero-title span {
+    color: var(--red2);
+    display: block;
+    text-shadow: var(--red-glow);
+  }
+
+  .hero-title .gold-line {
+    color: var(--gold);
+    text-shadow: var(--gold-glow);
+  }
+
+  .hero-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 19px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin-top: 16px;
+    animation: fadeUp .8s .3s ease both;
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; justify-content: center;
+    margin-top: 48px;
+    animation: fadeUp .8s .45s ease both;
+  }
+
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: var(--gold); line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  .hero-ctas {
+    display: flex; gap: 16px; justify-content: center;
+    margin-top: 36px;
+    animation: fadeUp .8s .6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: #fff; border: none;
+    padding: 14px 34px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background .2s, box-shadow .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--red2); box-shadow: var(--red-glow); }
+
+  .btn-outline {
+    background: transparent; color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 13px 34px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background .2s, box-shadow .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(212,175,55,0.1); box-shadow: var(--gold-glow); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    animation: fadeUp .8s .9s ease both;
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ===== TICKER ===== */
+  .live-ticker {
+    background: var(--red);
+    padding: 10px 0; overflow: hidden;
+    position: relative; z-index: 1;
+  }
+
+  .ticker-inner {
+    display: flex; gap: 0;
+    animation: ticker 32s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-item {
+    padding: 0 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 600; letter-spacing: 1px;
+    color: #fff;
+    border-right: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .ticker-item .live-dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: #ffdd00; border-radius: 50%;
+    margin-right: 8px; animation: blink 1s infinite;
+  }
+
+  .ticker-item .gold { color: var(--gold); font-weight: 700; }
+
+  /* ===== SECTIONS ===== */
+  section {
+    position: relative; z-index: 1;
+    padding: 100px 40px;
+  }
+
+  .section-header { text-align: center; margin-bottom: 64px; }
+
+  .section-tag {
+    display: inline-block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: 3px; line-height: 1;
+  }
+
+  .section-title em { color: var(--red2); font-style: normal; text-shadow: var(--red-glow); }
+
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(to right, var(--red), transparent);
+    margin: 16px auto 0;
+  }
+
+  /* ===== SCHEDULE ===== */
+  #schedule { background: rgba(204,0,0,0.03); }
+
+  .schedule-grid {
+    max-width: 900px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .match-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center; gap: 24px;
+    transition: border-color .2s, background .2s;
+    clip-path: polygon(16px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
+  }
+
+  .match-card:hover { border-color: var(--gold); background: rgba(204,0,0,0.18); }
+
+  .match-card.live {
+    border-color: #ffdd00;
+    background: rgba(255,221,0,0.05);
+    animation: livePulse 3s infinite;
+  }
+
+  .team { display: flex; flex-direction: column; }
+  .team.away { align-items: flex-end; }
+
+  .team-abbr {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; letter-spacing: 2px; line-height: 1;
+  }
+
+  .team-name {
+    font-size: 12px; letter-spacing: 1px;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  .match-meta { text-align: center; }
+
+  .match-score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; color: var(--gold); letter-spacing: 4px;
+  }
+
+  .match-date { font-size: 12px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+  .match-venue { font-size: 11px; color: rgba(255,240,240,0.35); margin-top: 4px; }
+
+  .match-status {
+    display: inline-block; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 3px 10px; margin-bottom: 6px;
+  }
+
+  .status-live   { background: rgba(255,221,0,0.15); color: #ffdd00; border: 1px solid #ffdd00; }
+  .status-upcoming { background: rgba(204,0,0,0.2); color: #ff6666; border: 1px solid #ff6666; }
+  .status-result { background: rgba(212,175,55,0.12); color: var(--gold); border: 1px solid var(--gold); }
+  .status-loss   { background: rgba(100,100,100,0.15); color: #aaa; border: 1px solid #555; }
+
+  /* ===== SQUAD ===== */
+  .squad-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .player-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+    cursor: pointer;
+  }
+
+  .player-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 40px rgba(204,0,0,0.3), var(--gold-glow);
+  }
+
+  .player-avatar {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(135deg, #6b0000 0%, #1a0000 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 52px;
+    color: rgba(212,175,55,0.25);
+    position: relative; overflow: hidden;
+  }
+
+  .player-avatar::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, #1a0000 0%, transparent 40%);
+  }
+
+  .player-number {
+    position: absolute; top: 12px; right: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; color: var(--gold); opacity: 0.55; z-index: 2;
+  }
+
+  .player-info {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .player-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 17px; letter-spacing: 1px; line-height: 1.1;
+  }
+
+  .player-role {
+    font-size: 12px; color: var(--red2); letter-spacing: 1px;
+    text-transform: uppercase; margin-top: 4px;
+  }
+
+  .player-stats-row { display: flex; gap: 12px; margin-top: 12px; }
+
+  .pstat {
+    flex: 1; text-align: center;
+    background: rgba(204,0,0,0.15); padding: 6px 4px;
+  }
+
+  .pstat .val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; color: var(--text); line-height: 1;
+  }
+
+  .pstat .lbl { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+
+  /* ===== STATS ===== */
+  #stats { background: rgba(0,0,0,0.25); }
+
+  .stats-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+  }
+
+  .stat-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 40px 24px; text-align: center;
+    transition: background .3s;
+  }
+
+  .stat-block:hover { background: rgba(204,0,0,0.2); }
+
+  .stat-block .big-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; line-height: 1; color: var(--gold);
+  }
+
+  .stat-block .big-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--muted); margin-top: 8px;
+  }
+
+  /* ===== NEWS ===== */
+  .news-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px;
+  }
+
+  .news-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color .2s; cursor: pointer;
+  }
+
+  .news-card:hover { border-color: var(--gold); }
+
+  .news-img {
+    width: 100%; aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #6b0000 0%, rgba(180,0,0,0.3) 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center; font-size: 40px;
+  }
+
+  .news-card:first-child .news-img { aspect-ratio: 16/7; }
+
+  .news-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--red); color: #fff;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 10px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+  }
+
+  .news-body { padding: 20px; }
+
+  .news-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 18px; line-height: 1.2; margin-bottom: 8px;
+  }
+
+  .news-card:first-child .news-title { font-size: 24px; }
+  .news-meta { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+
+  /* ===== POLLS ===== */
+  .polls-section { max-width: 700px; margin: 0 auto; }
+
+  .poll-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px; margin-bottom: 24px;
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+  }
+
+  .poll-question {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px;
+  }
+
+  .poll-options { display: flex; flex-direction: column; gap: 12px; }
+
+  .poll-option {
+    position: relative;
+    background: rgba(204,0,0,0.08);
+    border: 1px solid var(--border);
+    padding: 12px 16px; cursor: pointer; overflow: hidden;
+    transition: border-color .2s;
+  }
+
+  .poll-option:hover { border-color: var(--gold); }
+  .poll-option.voted { border-color: var(--red); }
+
+  .poll-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: rgba(204,0,0,0.28);
+    transition: width .6s ease; pointer-events: none;
+  }
+
+  .poll-label {
+    position: relative; z-index: 1;
+    display: flex; justify-content: space-between;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 600; letter-spacing: 1px;
+  }
+
+  .poll-pct { color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 18px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid var(--border);
+    padding: 60px 40px 40px;
+    position: relative; z-index: 1;
+  }
+
+  .footer-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 40px;
+  }
+
+  .footer-brand .logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; letter-spacing: 3px; color: var(--red2); margin-bottom: 12px;
+  }
+
+  .footer-brand p { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 260px; }
+
+  .social-links { display: flex; gap: 12px; margin-top: 20px; }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    background: var(--surface); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer;
+    transition: border-color .2s, background .2s;
+    text-decoration: none; color: var(--text);
+  }
+
+  .social-btn:hover { border-color: var(--gold); background: rgba(212,175,55,0.1); }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--red2); margin-bottom: 16px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--muted);
+  }
+
+  /* ===== RCB BANNER STRIP ===== */
+  .rcb-strip {
+    background: linear-gradient(90deg, var(--red) 0%, #8b0000 50%, var(--red) 100%);
+    padding: 28px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .rcb-strip::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.04) 80px, rgba(255,255,255,0.04) 81px);
+  }
+
+  .rcb-strip-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 4vw, 40px);
+    letter-spacing: 6px;
+    color: #fff;
+    position: relative;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .rcb-strip-text span { color: var(--gold); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  @keyframes scrollPulse {
+    0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
+  }
+
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,221,0,0); }
+    50%       { box-shadow: 0 0 16px 3px rgba(255,221,0,0.12); }
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.06; }
+    50%       { opacity: 0.10; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .squad-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 20px; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .rcb-strip { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="crest">RCB</div>
+    <span>Royal Challengers</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#squad">Squad</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#engage">Fan Zone</a></li>
+  </ul>
+  <button class="nav-cta">Buy Tickets</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">BANGALORE</div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ IPL 2025 Season</div>
+    <h1 class="hero-title">
+      <span>E Sala Cup</span>
+      <span class="gold-line">Namde!</span>
+    </h1>
+    <p class="hero-subtitle">Royal Challengers Bangalore · M. Chinnaswamy Stadium</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">18+</div>
+        <div class="label">IPL Seasons</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">25+</div>
+        <div class="label">Players</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2008</div>
+        <div class="label">Founded</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#schedule" class="btn-primary">Match Schedule</a>
+      <a href="#squad" class="btn-outline">View Squad</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="live-ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="live-dot"></span> <span class="gold">RCB vs MI</span> — RCB Innings: 142/6 (16.2 overs) · LIVE NOW</span>
+    <span class="ticker-item">Virat Kohli <span class="gold">74*(48)</span> · Rajat Patidar <span class="gold">32*(18)</span></span>
+    <span class="ticker-item">Next: <span class="gold">RCB vs GT</span> · May 26 · Chinnaswamy</span>
+    <span class="ticker-item">RCB Won vs SRH by <span class="gold">18 runs</span> · May 17</span>
+    <span class="ticker-item">Mohammed Siraj — <span class="gold">4 wickets</span> in last match · Player of the Match</span>
+    <span class="ticker-item"><span class="live-dot"></span> <span class="gold">RCB vs MI</span> — RCB Innings: 142/6 (16.2 overs) · LIVE NOW</span>
+    <span class="ticker-item">Virat Kohli <span class="gold">74*(48)</span> · Rajat Patidar <span class="gold">32*(18)</span></span>
+    <span class="ticker-item">Next: <span class="gold">RCB vs GT</span> · May 26 · Chinnaswamy</span>
+    <span class="ticker-item">RCB Won vs SRH by <span class="gold">18 runs</span> · May 17</span>
+    <span class="ticker-item">Mohammed Siraj — <span class="gold">4 wickets</span> in last match · Player of the Match</span>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="section-header fade-in">
+    <div class="section-tag">✦ IPL 2025</div>
+    <h2 class="section-title">Match <em>Schedule</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="schedule-grid">
+
+    <div class="match-card live fade-in">
+      <div class="team">
+        <div class="team-abbr" style="color:#ff4444">RCB</div>
+        <div class="team-name">Royal Challengers</div>
+      </div>
+      <div class="match-meta">
+        <div class="match-status status-live">● Live</div>
+        <div class="match-score">142/6 vs 187/4</div>
+        <div class="match-date">May 22, 2025</div>
+        <div class="match-venue">Wankhede Stadium</div>
+      </div>
+      <div class="team away">
+        <div class="team-abbr" style="color:#1E90FF">MI</div>
+        <div class="team-name">Mumbai Indians</div>
+      </div>
+    </div>
+
+    <div class="match-card fade-in">
+      <div class="team">
+        <div class="team-abbr" style="color:#ff4444">RCB</div>
+        <div class="team-name">Royal Challengers</div>
+      </div>
+      <div class="match-meta">
+        <div class="match-status status-upcoming">Upcoming</div>
+        <div class="match-score">vs</div>
+        <div class="match-date">May 26, 2025</div>
+        <div class="match-venue">M. Chinnaswamy Stadium</div>
+      </div>
+      <div class="team away">
+        <div class="team-abbr" style="color:#1a9bfc">GT</div>
+        <div class="team-name">Gujarat Titans</div>
+      </div>
+    </div>
+
+    <div class="match-card fade-in">
+      <div class="team">
+        <div class="team-abbr" style="color:#ff4444">RCB</div>
+        <div class="team-name">Royal Challengers</div>
+      </div>
+      <div class="match-meta">
+        <div class="match-status status-result">RCB Won</div>
+        <div class="match-score">204/4 vs 186/7</div>
+        <div class="match-date">May 17, 2025</div>
+        <div class="match-venue">Rajiv Gandhi Intl. Stadium</div>
+      </div>
+      <div class="team away">
+        <div class="team-abbr" style="color:#ff6600">SRH</div>
+        <div class="team-name">Sunrisers Hyderabad</div>
+      </div>
+    </div>
+
+    <div class="match-card fade-in">
+      <div class="team">
+        <div class="team-abbr" style="color:#ff4444">RCB</div>
+        <div class="team-name">Royal Challengers</div>
+      </div>
+      <div class="match-meta">
+        <div class="match-status status-upcoming">Upcoming</div>
+        <div class="match-score">vs</div>
+        <div class="match-date">May 30, 2025</div>
+        <div class="match-venue">M. Chinnaswamy Stadium</div>
+      </div>
+      <div class="team away">
+        <div class="team-abbr" style="color:#ffdd00">CSK</div>
+        <div class="team-name">Chennai Super Kings</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SQUAD -->
+<section id="squad">
+  <div class="section-header fade-in">
+    <div class="section-tag">✦ IPL 2025 Roster</div>
+    <h2 class="section-title">The <em>Squad</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="squad-grid">
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#7a0000,#1a0000)">
+        VK
+        <span class="player-number">18</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Virat Kohli</div>
+        <div class="player-role">Batsman · Captain</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">612</div><div class="lbl">Runs</div></div>
+          <div class="pstat"><div class="val">143</div><div class="lbl">S/R</div></div>
+          <div class="pstat"><div class="val">6</div><div class="lbl">50s</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#5a0000,#150000)">
+        FD
+        <span class="player-number">45</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Faf du Plessis</div>
+        <div class="player-role">Batsman · Opener</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">486</div><div class="lbl">Runs</div></div>
+          <div class="pstat"><div class="val">161</div><div class="lbl">S/R</div></div>
+          <div class="pstat"><div class="val">4</div><div class="lbl">50s</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#6b0000,#180000)">
+        MS
+        <span class="player-number">23</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Mohammed Siraj</div>
+        <div class="player-role">Bowler · Pace</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">22</div><div class="lbl">Wkts</div></div>
+          <div class="pstat"><div class="val">7.8</div><div class="lbl">Econ</div></div>
+          <div class="pstat"><div class="val">4/18</div><div class="lbl">Best</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#4d0000,#120000)">
+        GH
+        <span class="player-number">7</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Glenn Maxwell</div>
+        <div class="player-role">All-Rounder</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">342</div><div class="lbl">Runs</div></div>
+          <div class="pstat"><div class="val">12</div><div class="lbl">Wkts</div></div>
+          <div class="pstat"><div class="val">168</div><div class="lbl">S/R</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#600000,#160000)">
+        RP
+        <span class="player-number">33</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Rajat Patidar</div>
+        <div class="player-role">Batsman</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">410</div><div class="lbl">Runs</div></div>
+          <div class="pstat"><div class="val">155</div><div class="lbl">S/R</div></div>
+          <div class="pstat"><div class="val">3</div><div class="lbl">50s</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-card fade-in">
+      <div class="player-avatar" style="background:linear-gradient(135deg,#520000,#110000)">
+        WH
+        <span class="player-number">10</span>
+      </div>
+      <div class="player-info">
+        <div class="player-name">Will Jacks</div>
+        <div class="player-role">All-Rounder</div>
+        <div class="player-stats-row">
+          <div class="pstat"><div class="val">298</div><div class="lbl">Runs</div></div>
+          <div class="pstat"><div class="val">9</div><div class="lbl">Wkts</div></div>
+          <div class="pstat"><div class="val">174</div><div class="lbl">S/R</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RCB STRIP BANNER -->
+<div class="rcb-strip">
+  <div class="rcb-strip-text">Play Bold · <span>E Sala Cup Namde</span> · Play Bold</div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="section-header fade-in">
+    <div class="section-tag">✦ Season 2025</div>
+    <h2 class="section-title">Team <em>Statistics</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="stats-grid fade-in">
+    <div class="stat-block"><div class="big-num">9</div><div class="big-label">Matches Won</div></div>
+    <div class="stat-block"><div class="big-num">4</div><div class="big-label">Matches Lost</div></div>
+    <div class="stat-block"><div class="big-num">192</div><div class="big-label">Avg. Score</div></div>
+    <div class="stat-block"><div class="big-num">69%</div><div class="big-label">Win Rate</div></div>
+    <div class="stat-block"><div class="big-num">3128</div><div class="big-label">Total Runs</div></div>
+    <div class="stat-block"><div class="big-num">104</div><div class="big-label">Total Wickets</div></div>
+    <div class="stat-block"><div class="big-num">26</div><div class="big-label">Sixes Today</div></div>
+    <div class="stat-block"><div class="big-num">2nd</div><div class="big-label">Points Table</div></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-header fade-in">
+    <div class="section-tag">✦ Latest Updates</div>
+    <h2 class="section-title">News &amp; <em>Updates</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="news-grid">
+    <div class="news-card fade-in">
+      <div class="news-img" style="background:linear-gradient(135deg,#7a0000,rgba(204,0,0,0.3))">
+        🏏
+        <div class="news-tag">Match Report</div>
+      </div>
+      <div class="news-body">
+        <h3 class="news-title">Siraj's 4-Fer Fires RCB to Brilliant Win Over SRH at Hyderabad</h3>
+        <div class="news-meta">May 17, 2025 · 4 min read</div>
+      </div>
+    </div>
+    <div class="news-card fade-in">
+      <div class="news-img" style="background:linear-gradient(135deg,#5a0000,#1a0000)">
+        👑
+        <div class="news-tag">Feature</div>
+      </div>
+      <div class="news-body">
+        <h3 class="news-title">Virat Crosses 600 Runs — The King Reigns Again</h3>
+        <div class="news-meta">May 19, 2025 · 3 min read</div>
+      </div>
+    </div>
+    <div class="news-card fade-in">
+      <div class="news-img" style="background:linear-gradient(135deg,#6b0000,rgba(180,0,0,0.4))">
+        📊
+        <div class="news-tag">Analysis</div>
+      </div>
+      <div class="news-body">
+        <h3 class="news-title">Chinnaswamy Effect: Why RCB Dominate at Home</h3>
+        <div class="news-meta">May 15, 2025 · 5 min read</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAN ZONE -->
+<section id="engage">
+  <div class="section-header fade-in">
+    <div class="section-tag">✦ Fan Engagement</div>
+    <h2 class="section-title">Fan <em>Zone</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="polls-section">
+
+    <div class="poll-card fade-in" id="poll1">
+      <div class="poll-question">🏏 Who is RCB's Best Performer in IPL 2025?</div>
+      <div class="poll-options">
+        <div class="poll-option" onclick="vote('poll1',0,this)">
+          <div class="poll-fill" style="width:58%"></div>
+          <div class="poll-label"><span>Virat Kohli</span><span class="poll-pct">58%</span></div>
+        </div>
+        <div class="poll-option" onclick="vote('poll1',1,this)">
+          <div class="poll-fill" style="width:24%"></div>
+          <div class="poll-label"><span>Mohammed Siraj</span><span class="poll-pct">24%</span></div>
+        </div>
+        <div class="poll-option" onclick="vote('poll1',2,this)">
+          <div class="poll-fill" style="width:18%"></div>
+          <div class="poll-label"><span>Glenn Maxwell</span><span class="poll-pct">18%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="poll-card fade-in" id="poll2">
+      <div class="poll-question">🏆 E Sala Cup Namde — Will RCB win IPL 2025?</div>
+      <div class="poll-options">
+        <div class="poll-option" onclick="vote('poll2',0,this)">
+          <div class="poll-fill" style="width:82%"></div>
+          <div class="poll-label"><span>Yes! This is our year! 🔴</span><span class="poll-pct">82%</span></div>
+        </div>
+        <div class="poll-option" onclick="vote('poll2',1,this)">
+          <div class="poll-fill" style="width:18%"></div>
+          <div class="poll-label"><span>Not this time...</span><span class="poll-pct">18%</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">Royal Challengers Bangalore</div>
+      <p>The official fan hub for RCB. Match schedules, player profiles, live updates, and the ultimate RCB fan community. Play Bold.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#" title="Twitter">𝕏</a>
+        <a class="social-btn" href="#" title="Instagram">📸</a>
+        <a class="social-btn" href="#" title="YouTube">▶</a>
+        <a class="social-btn" href="#" title="Facebook">f</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#squad">Squad</a></li>
+        <li><a href="#stats">Statistics</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Team</h4>
+      <ul>
+        <li><a href="#">Management</a></li>
+        <li><a href="#">Coaching Staff</a></li>
+        <li><a href="#">Physio Team</a></li>
+        <li><a href="#">History</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Fan Zone</h4>
+      <ul>
+        <li><a href="#">Buy Tickets</a></li>
+        <li><a href="#">RCB Merchandise</a></li>
+        <li><a href="#">Fan Forum</a></li>
+        <li><a href="#">Fantasy League</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Royal Challengers Bangalore Fan Hub · ShadowFox Internship Project</span>
+    <span>Play Bold ❤️‍🔥</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Poll voting
+  const voted = {};
+  function vote(pollId, idx, el) {
+    if (voted[pollId]) return;
+    voted[pollId] = true;
+    const opts = document.querySelectorAll(`#${pollId} .poll-option`);
+    const fills = Array.from(opts).map(o => parseFloat(o.querySelector('.poll-fill').style.width));
+    fills[idx] += 1;
+    const total = fills.reduce((a, b) => a + b, 0);
+    opts.forEach((o, i) => {
+      const newPct = Math.round(fills[i] / total * 100);
+      o.querySelector('.poll-fill').style.width = newPct + '%';
+      o.querySelector('.poll-pct').textContent = newPct + '%';
+      o.classList.add('voted');
+    });
+    el.querySelector('.poll-fill').style.background = 'rgba(204,0,0,0.5)';
+    el.style.borderColor = 'var(--gold)';
+  }
+
+  // Animated counters
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const raw = el.textContent;
+      const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+      const suffix = raw.replace(/[0-9.]/g, '');
+      let start = null;
+      const step = (ts) => {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / 1400, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = (Number.isInteger(num) ? Math.round(eased * num) : (eased * num).toFixed(1)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+      statObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.big-num').forEach(el => statObserver.observe(el));
+</script>
+</body>
+</html>
